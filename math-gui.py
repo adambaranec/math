@@ -1,4 +1,3 @@
-from math import *
 import math
 from tkinter import *
 from tkinter import messagebox
@@ -6,19 +5,18 @@ import tkinter
 
 okno = Tk()
 okno.geometry('500x500')
+okno.eval('tk::PlaceWindow . center')
 okno.title="Matika"
 Label(text="Vyber tvar:").pack()
-strana1 = 0
-strana2 = 0
+strana1 = StringVar()
+strana2 = StringVar()
 dlzka = Entry(okno, textvariable=strana1)
-a = Entry(okno)
-b = Entry(okno)
+a = Entry(okno, textvariable=strana1)
+b = Entry(okno, textvariable=strana2)
 r = Entry(okno, textvariable=strana1)
 
-#to co bolo napisane v objektoch Entry
 i = IntVar()
 i.set(1)
-pi = 3.14
 
 def prvy(): 
     if i.get() == 1:
@@ -48,7 +46,7 @@ def prvy():
           try:     
            getr = r.get()
            radius = int(getr)
-           obsah = pi * radius*radius
+           obsah = math.pi * radius*radius
            zapis = str(obsah)
            Label(okno, text="Obsah kruhu je " + zapis + ".").pack()
           except ValueError:
@@ -95,7 +93,7 @@ def druhy():
          try:
           getr = r.get()
           radius = int(getr)
-          obvod = 2 * pi * radius
+          obvod = 2 * math.pi * radius
           zapis = str(obvod)
           Label(okno, text="Obvod kruhu je " + zapis + ".").pack()
          except ValueError:
