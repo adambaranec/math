@@ -26,7 +26,9 @@ def prvy():
           side = int(getside)
           obsah = side * side
           zapis = str(obsah)
-          Label(okno, text="Obsah štvorca je " + zapis + ".").pack()
+          label= Label(okno, text="Obsah štvorca je " + zapis + ".")
+          label.forget_pack()
+          label.pack()
          except ValueError:
           messagebox.showerror("Pozor", "Akceptujeme len čísla.")
     if i.get() == 2:
@@ -38,7 +40,9 @@ def prvy():
           sideb = int(getb)
           obsah = sidea * sideb
           zapis = str(obsah)
-          Label(okno, text="Obsah obdĺžnika je " + zapis + ".").pack()
+          label = Label(okno, text="Obsah obdĺžnika je " + zapis + ".")
+          label.forget_pack()
+          label.pack()
          except ValueError:
           messagebox.showerror("Pozor", "Akceptujeme len čísla.")
     if i.get() == 3:
@@ -48,7 +52,9 @@ def prvy():
            radius = int(getr)
            obsah = math.pi * radius*radius
            zapis = str(obsah)
-           Label(okno, text="Obsah kruhu je " + zapis + ".").pack()
+           label = Label(okno, text="Obsah kruhu je " + zapis + ".")
+           label.forget_pack()
+           label.pack()
           except ValueError:
            messagebox.showerror("Pozor", "Akceptujeme len čísla.")
     if i.get() == 4:
@@ -60,7 +66,9 @@ def prvy():
            sideb = int(getb)
            vysledok = sidea*sidea + sideb*sideb
            zapis = str(vysledok)
-           Label(okno, text="Výsledok vety je " + zapis + ".").pack()
+           label = Label(okno, text="Výsledok vety je " + zapis + ".")
+           label.forget_pack()
+           label.pack()
           except ValueError:
            messagebox.showerror("Pozor", "Akceptujeme len čísla.")
 
@@ -73,7 +81,9 @@ def druhy():
           side = int(getside)
           obvod = side * 4
           zapis = str(obvod)
-          Label(okno, text="Obvod štvorca je " + zapis + ".").pack()
+          label = Label(okno, text="Obvod štvorca je " + zapis + ".")
+          label.forget_pack()
+          label.pack()
         except ValueError:
           messagebox.showerror("Pozor", "Akceptujeme len čísla.")
     if i.get() == 2:
@@ -85,7 +95,9 @@ def druhy():
           sideb = int(getb)
           obvod = 2 * (sidea + sideb)
           zapis = str(obvod)
-          Label(okno, text="Obvod obdĺžnika je " + zapis + ".").pack()
+          label = Label(okno, text="Obvod obdĺžnika je " + zapis + ".")
+          label.forget_pack()
+          label.pack()
          except ValueError:
           messagebox.showerror("Pozor", "Akceptujeme len čísla.")
     if i.get() == 3:
@@ -95,7 +107,9 @@ def druhy():
           radius = int(getr)
           obvod = 2 * math.pi * radius
           zapis = str(obvod)
-          Label(okno, text="Obvod kruhu je " + zapis + ".").pack()
+          label = Label(okno, text="Obvod kruhu je " + zapis + ".")
+          label.forget_pack()
+          label.pack()
          except ValueError:
           messagebox.showerror("Pozor", "Akceptujeme len čísla.")
     if i.get() == 4:
@@ -108,7 +122,9 @@ def druhy():
           vypocet = sidea*sidea + sideb*sideb
           vysledok = math.sqrt(vypocet)
           zapis = str(vysledok)
-          Label(okno, text="Dĺžka odvesny je " + zapis + ".").pack()
+          label = Label(okno, text="Dĺžka odvesny je " + zapis + ".")
+          label.forget_pack()
+          label.pack()
          except ValueError:               
           messagebox.showerror("Pozor", "Akceptujeme len čísla.")
 
@@ -118,6 +134,14 @@ vysledok = Button(text="Výsledok", padx=50, pady=10, command=prvy)
 realna_dlzka = Button(text="Reálna dĺžka", padx=50, pady=10, command=druhy)
 
 def prepare():
+  dlzka.forget_pack()
+  obsah.forget_pack()
+  obvod.forget_pack()
+  a.forget_pack()
+  b.forget_pack()
+  r.forget_pack()
+  vysledok.forget_pack()
+  realna_dlzka.forget_pack()
     if i.get() == 1:
        Label(text="Dĺžka strany:").pack()
        dlzka.pack()
