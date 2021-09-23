@@ -14,7 +14,14 @@ dlzka = Entry(okno, textvariable=strana1)
 a = Entry(okno, textvariable=strana1)
 b = Entry(okno, textvariable=strana2)
 r = Entry(okno, textvariable=strana1)
-
+l_obsahstvorca = Label(okno)
+l_obsahobdlznika = Label(okno)
+l_obsahkruhu = Label(okno)
+l_vysledokvety = Label(okno)
+l_obvodstvorca = Label(okno)
+l_obvodobdlznika = Label(okno)
+l_obvodkruhu = Label(okno)
+l_dlzkaodvesny = Label(okno)
 i = IntVar()
 i.set(1)
 
@@ -26,9 +33,10 @@ def prvy():
           side = int(getside)
           obsah = side * side
           zapis = str(obsah)
-          label= Label(okno, text="Obsah štvorca je " + zapis + ".")
-          label.pack_forget()
-          label.pack()
+          stav = "Obsah štvorca je " + zapis + "."
+          l_obsahstvorca.pack_forget()
+          l_obsahstvorca.pack()
+          l_obsahstvorca.config(text=stav)
          except ValueError:
           messagebox.showerror("Pozor", "Akceptujeme len čísla.")
     if i.get() == 2:
@@ -40,9 +48,10 @@ def prvy():
           sideb = int(getb)
           obsah = sidea * sideb
           zapis = str(obsah)
-          label = Label(okno, text="Obsah obdĺžnika je " + zapis + ".")
-          label.pack_forget()
-          label.pack()
+          stav = "Obsah obdĺžnika je " + zapis + "."
+          l_obsahobdlznika.pack_forget()
+          l_obsahobdlznika.pack()
+          l_obsahobdlznika.config(text=stav)
          except ValueError:
           messagebox.showerror("Pozor", "Akceptujeme len čísla.")
     if i.get() == 3:
@@ -52,9 +61,10 @@ def prvy():
            radius = int(getr)
            obsah = math.pi * radius*radius
            zapis = str(obsah)
-           label = Label(okno, text="Obsah kruhu je " + zapis + ".")
-           label.pack_forget()
-           label.pack()
+           stav = "Obsah kruhu je " + zapis + "."
+           l_obsahkruhu.pack_forget()
+           l_obsahkruhu.pack()
+           l_obsahkruhu.config(text=stav)
           except ValueError:
            messagebox.showerror("Pozor", "Akceptujeme len čísla.")
     if i.get() == 4:
@@ -66,12 +76,12 @@ def prvy():
            sideb = int(getb)
            vysledok = sidea*sidea + sideb*sideb
            zapis = str(vysledok)
-           label = Label(okno, text="Výsledok vety je " + zapis + ".")
-           label.pack_forget()
-           label.pack()
+           stav = "Výsledok vety je " + zapis + "."
+           l_vysledokvety.pack_forget()
+           l_vysledokvety.pack()
+           l_vysledokvety.config(text=stav)
           except ValueError:
            messagebox.showerror("Pozor", "Akceptujeme len čísla.")
-
 
 def druhy():
     if i.get() == 1:
@@ -81,9 +91,10 @@ def druhy():
           side = int(getside)
           obvod = side * 4
           zapis = str(obvod)
-          label = Label(okno, text="Obvod štvorca je " + zapis + ".")
-          label.pack_forget()
-          label.pack()
+          stav = "Obvod štvorca je " + zapis + "."
+          l_obvodstvorca.pack_forget()
+          l_obvodstvorca.pack()
+          l_obvodstvorca.config(text=stav)
         except ValueError:
           messagebox.showerror("Pozor", "Akceptujeme len čísla.")
     if i.get() == 2:
@@ -95,9 +106,10 @@ def druhy():
           sideb = int(getb)
           obvod = 2 * (sidea + sideb)
           zapis = str(obvod)
-          label = Label(okno, text="Obvod obdĺžnika je " + zapis + ".")
-          label.pack_forget()
-          label.pack()
+          stav = "Obvod obdĺžnika je " + zapis + "."
+          l_obvodobdlznika.pack_forget()
+          l_obvodobdlznika.pack()
+          l_obvodobdlznika.config(text=stav)
          except ValueError:
           messagebox.showerror("Pozor", "Akceptujeme len čísla.")
     if i.get() == 3:
@@ -107,9 +119,10 @@ def druhy():
           radius = int(getr)
           obvod = 2 * math.pi * radius
           zapis = str(obvod)
-          label = Label(okno, text="Obvod kruhu je " + zapis + ".")
-          label.pack_forget()
-          label.pack()
+          stav = "Obvod kruhu je " + zapis + "."
+          l_obvodkruhu.pack_forget()
+          l_obvodkruhu.pack()
+          l_obvodkruhu.config(text=stav)
          except ValueError:
           messagebox.showerror("Pozor", "Akceptujeme len čísla.")
     if i.get() == 4:
@@ -122,9 +135,10 @@ def druhy():
           vypocet = sidea*sidea + sideb*sideb
           vysledok = math.sqrt(vypocet)
           zapis = str(vysledok)
-          label = Label(okno, text="Dĺžka odvesny je " + zapis + ".")
-          label.pack_forget()
-          label.pack()
+          stav = "Dĺžka odvesny je " + zapis + "."
+          l_dlzkaodvesny.pack_forget()
+          l_dlzkaodvesny.pack()
+          l_dlzkaodvesny.config(text=stav)
          except ValueError:               
           messagebox.showerror("Pozor", "Akceptujeme len čísla.")
 
@@ -146,12 +160,24 @@ def hide():
   obvod.pack_forget()
   vysledok.pack_forget()
   realna_dlzka.pack_forget()
+  l1.pack_forget()
+  l2.pack_forget()
+  l3.pack_forget()
+  l4.pack_forget()
+  l_obsahstvorca.pack_forget()
+  l_obsahobdlznika.pack_forget()
+  l_obsahkruhu.pack_forget()
+  l_vysledokvety.pack_forget()
+  l_obvodstvorca.pack_forget()
+  l_obvodobdlznika.pack_forget()
+  l_obvodkruhu.pack_forget()
+  l_dlzkaodvesny.pack_forget()
 
 def prepare():
   hide()
 
   if i.get() == 1:
-       Label(text="Dĺžka strany:").pack()
+       l1.pack()
        dlzka.pack()
        obsah.pack()
        obvod.pack()
@@ -163,7 +189,7 @@ def prepare():
        obsah.pack()
        obvod.pack()
   if i.get() == 3:
-       Label(text="Polomer:").pack()
+       l4.pack()
        r.pack()
        obsah.pack()
        obvod.pack()
