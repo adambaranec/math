@@ -55,7 +55,7 @@ def prvy():
           side = float(getside)
           obsah = side * side
           zapis = str(obsah)
-          stav = "Obsah štvorca je " + zapis + "."
+          stav = f"Obsah štvorca je {zapis}."
           l_obsahstvorca.pack_forget()
           l_obsahstvorca.pack()
           l_obsahstvorca.config(text=stav)
@@ -69,7 +69,7 @@ def prvy():
           sideb = float(getb)
           obsah = sidea * sideb
           zapis = str(obsah)
-          stav = "Obsah obdĺžnika je " + zapis + "."
+          stav = f"Obsah obdĺžnika je {zapis}."
           l_obsahobdlznika.pack_forget()
           l_obsahobdlznika.pack()
           l_obsahobdlznika.config(text=stav)
@@ -81,7 +81,7 @@ def prvy():
            radius = float(getr)
            obsah = math.pi * radius*radius
            zapis = str(obsah)
-           stav = "Obsah kruhu je " + zapis + "."
+           stav = f"Obsah kruhu je {zapis}."
            l_obsahkruhu.pack_forget()
            l_obsahkruhu.pack()
            l_obsahkruhu.config(text=stav)
@@ -95,7 +95,7 @@ def prvy():
            sideb = float(getb)
            vysledok = sidea*sidea + sideb*sideb
            zapis = str(vysledok)
-           stav = "Výsledok vety je " + zapis + "."
+           stav = f"Výsledok vety je {zapis}."
            l_vysledokvety.pack_forget()
            l_vysledokvety.pack()
            l_vysledokvety.config(text=stav)
@@ -109,7 +109,7 @@ def druhy():
           side = float(getside)
           obvod = side * 4
           zapis = str(obvod)
-          stav = "Obvod štvorca je " + zapis + "."
+          stav = f"Obvod štvorca je {zapis}."
           l_obvodstvorca.pack_forget()
           l_obvodstvorca.pack()
           l_obvodstvorca.config(text=stav)
@@ -123,7 +123,7 @@ def druhy():
           sideb = int(getb)
           obvod = 2 * (sidea + sideb)
           zapis = str(obvod)
-          stav = "Obvod obdĺžnika je " + zapis + "."
+          stav = f"Obvod obdĺžnika je {zapis}."
           l_obvodobdlznika.pack_forget()
           l_obvodobdlznika.pack()
           l_obvodobdlznika.config(text=stav)
@@ -135,7 +135,7 @@ def druhy():
           radius = int(getr)
           obvod = 2 * math.pi * radius
           zapis = str(obvod)
-          stav = "Obvod kruhu je " + zapis + "."
+          stav = f"Obvod kruhu je {zapis}."
           l_obvodkruhu.pack_forget()
           l_obvodkruhu.pack()
           l_obvodkruhu.config(text=stav)
@@ -150,7 +150,7 @@ def druhy():
           vypocet = sidea*sidea + sideb*sideb
           vysledok = math.sqrt(vypocet)
           zapis = str(vysledok)
-          stav = "Dĺžka odvesny je " + zapis + "."
+          stav = f"Dĺžka odvesny je {zapis}."
           l_dlzkaodvesny.pack_forget()
           l_dlzkaodvesny.pack()
           l_dlzkaodvesny.config(text=stav)
