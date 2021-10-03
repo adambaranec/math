@@ -3,11 +3,12 @@ from tkinter import *
 from tkinter import messagebox
 import tkinter
 
+#declaration of all UI components
 okno = Tk()
 okno.geometry('500x500')
 okno.eval('tk::PlaceWindow . center')
 okno.title="Matika"
-Label(text="Vyber tvar:").pack()
+choose = Label(text="Vyber tvar:")
 strana1 = StringVar()
 strana2 = StringVar()
 dlzka = Entry(okno, textvariable=strana1)
@@ -22,15 +23,36 @@ l_obvodstvorca = Label(okno)
 l_obvodobdlznika = Label(okno)
 l_obvodkruhu = Label(okno)
 l_dlzkaodvesny = Label(okno)
+obsah = Button(text="Obsah", padx=50, pady=10)
+obvod = Button(text="Obvod", padx=50, pady=10)
+vysledok = Button(text="Výsledok", padx=50, pady=10)
+realna_dlzka = Button(text="Reálna dĺžka", padx=50, pady=10)
+l1 = Label(text="Dĺžka strany:")
+l2 = Label(text="a:")
+l3 = Label(text="b:")
+l4 = Label(text="Polomer:")
 i = IntVar()
-i.set(1)
+isdark = IntVar()
+stvorec = Radiobutton(okno, text="Štvorec", variable=i, value=1)
+obdlznik = Radiobutton(okno, text="Obdĺžnik", variable=i, value=2)
+kruh = Radiobutton(okno, text="Kruh", variable=i, value=3)
+pyveta = Radiobutton(okno, text="Pytagorova veta", variable=i, value=4)
+mode = Checkbutton(okno, text="Tmavý režim", variable=isdark, onvalue=1, offvalue=0)
+lang = Menu(okno)
+#making them visible
+mode.pack() #this actually does not do anything, because there are problems with switching foreground
+choose.pack()
+stvorec.pack()
+obdlznik.pack()
+kruh.pack()
+pyveta.pack()
 
+#and the functions belonging to the buttons, radiobuttons and checkbutton
 def prvy(): 
     if i.get() == 1:
-       if strana1 != None: 
          try: 
           getside = dlzka.get()
-          side = int(getside)
+          side = float(getside)
           obsah = side * side
           zapis = str(obsah)
           stav = "Obsah štvorca je " + zapis + "."
@@ -40,12 +62,11 @@ def prvy():
          except ValueError:
           messagebox.showerror("Pozor", "Akceptujeme len čísla.")
     if i.get() == 2:
-        if strana1 and strana2 != None: 
          try:   
           geta = a.get()
           getb = b.get()
-          sidea = int(geta)
-          sideb = int(getb)
+          sidea = float(geta)
+          sideb = float(getb)
           obsah = sidea * sideb
           zapis = str(obsah)
           stav = "Obsah obdĺžnika je " + zapis + "."
@@ -55,10 +76,9 @@ def prvy():
          except ValueError:
           messagebox.showerror("Pozor", "Akceptujeme len čísla.")
     if i.get() == 3:
-        if strana1 != None:
           try:     
            getr = r.get()
-           radius = int(getr)
+           radius = float(getr)
            obsah = math.pi * radius*radius
            zapis = str(obsah)
            stav = "Obsah kruhu je " + zapis + "."
@@ -68,12 +88,11 @@ def prvy():
           except ValueError:
            messagebox.showerror("Pozor", "Akceptujeme len čísla.")
     if i.get() == 4:
-        if strana1 and strana2 != None:
           try:   
            geta = a.get()
            getb = b.get()
-           sidea = int(geta)
-           sideb = int(getb)
+           sidea = float(geta)
+           sideb = float(getb)
            vysledok = sidea*sidea + sideb*sideb
            zapis = str(vysledok)
            stav = "Výsledok vety je " + zapis + "."
@@ -85,10 +104,9 @@ def prvy():
 
 def druhy():
     if i.get() == 1:
-       if strana1 != None: 
         try:  
           getside = dlzka.get()
-          side = int(getside)
+          side = float(getside)
           obvod = side * 4
           zapis = str(obvod)
           stav = "Obvod štvorca je " + zapis + "."
@@ -98,7 +116,6 @@ def druhy():
         except ValueError:
           messagebox.showerror("Pozor", "Akceptujeme len čísla.")
     if i.get() == 2:
-        if strana1 and strana2 != None: 
          try: 
           geta = a.get()
           getb = b.get()
@@ -113,7 +130,6 @@ def druhy():
          except ValueError:
           messagebox.showerror("Pozor", "Akceptujeme len čísla.")
     if i.get() == 3:
-        if strana1 != None:
          try:
           getr = r.get()
           radius = int(getr)
@@ -126,7 +142,6 @@ def druhy():
          except ValueError:
           messagebox.showerror("Pozor", "Akceptujeme len čísla.")
     if i.get() == 4:
-        if strana1 and strana2 != None:
          try:     
           geta = a.get()
           getb = b.get()
@@ -142,17 +157,13 @@ def druhy():
          except ValueError:               
           messagebox.showerror("Pozor", "Akceptujeme len čísla.")
 
-obsah = Button(text="Obsah", padx=50, pady=10, command=prvy)
-obvod = Button(text="Obvod", padx=50, pady=10, command=druhy)
-vysledok = Button(text="Výsledok", padx=50, pady=10, command=prvy)
-realna_dlzka = Button(text="Reálna dĺžka", padx=50, pady=10, command=druhy)
-l1 = Label(text="Dĺžka strany:")
-l2 = Label(text="a:")
-l3 = Label(text="b:")
-l4 = Label(text="Polomer:")
+obsah.config(command=prvy)
+obvod.config(command=druhy)
+vysledok.config(command=prvy)
+realna_dlzka.config(command=druhy)
 
 def hide():
-  #if someone clicked another radiobutton, the elements should not stay there
+  #this function is only for better understanding what it does
   dlzka.delete(0)
   a.delete(0)
   b.delete(0)
@@ -206,9 +217,9 @@ def prepare():
        vysledok.pack()
        realna_dlzka.pack()
 
-Radiobutton(okno, text="Štvorec", variable=i, value=1, command=prepare).pack()
-Radiobutton(okno, text="Obdĺžnik", variable=i, value=2, command=prepare).pack()
-Radiobutton(okno, text="Kruh", variable=i, value=3, command=prepare).pack()
-Radiobutton(okno, text="Pytagorova veta", variable=i, value=4, command=prepare).pack()
+stvorec.config(command=prepare)
+obdlznik.config(command=prepare)
+kruh.config(command=prepare)
+pyveta.config(command=prepare)
 
 okno.mainloop()
