@@ -40,14 +40,75 @@ pyveta = Radiobutton(okno, text="Pytagorova veta", variable=i, value=4)
 mode = Checkbutton(okno, text="Tmavý režim", variable=isdark, onvalue=1, offvalue=0)
 lang = Menu(okno)
 #making them visible
-mode.pack() #this actually does not do anything, because there are problems with switching foreground
+mode.pack()
 choose.pack()
 stvorec.pack()
 obdlznik.pack()
 kruh.pack()
 pyveta.pack()
 
-#and the functions belonging to the buttons, radiobuttons and checkbutton
+#function for switching modes
+def dark():
+ if isdark.get() == 0:
+  okno.config(bg='white')
+  mode.config(bg='white',fg='black')
+  choose.config(bg='white',fg='black')
+  stvorec.config(bg='white',fg='black')
+  obdlznik.config(bg='white',fg='black')
+  kruh.config(bg='white',fg='black')
+  pyveta.config(bg='white',fg='black')
+  l1.config(bg='white',fg='black')
+  l2.config(bg='white',fg='black')
+  l3.config(bg='white',fg='black')
+  l4.config(bg='white',fg='black')
+  l_obsahstvorca.config(bg='white',fg='black')
+  l_obsahobdlznika.config(bg='white',fg='black')
+  l_obsahkruhu.config(bg='white',fg='black')
+  l_vysledokvety.config(bg='white',fg='black')
+  l_obvodstvorca.config(bg='white',fg='black')
+  l_obvodobdlznika.config(bg='white',fg='black')
+  l_obvodkruhu.config(bg='white',fg='black')
+  l_dlzkaodvesny.config(bg='white',fg='black')
+  obsah.config(bg='white',fg='black')
+  obvod.config(bg='white',fg='black')
+  vysledok.config(bg='white',fg='black')
+  realna_dlzka.config(bg='white',fg='black')
+  a.config(bg='white',fg='black')
+  b.config(bg='white',fg='black')
+  r.config(bg='white',fg='black')
+
+ if isdark.get() == 1:
+  okno.config(bg='black')
+  mode.config(bg='black',fg='white')
+  choose.config(bg='black',fg='white')
+  stvorec.config(bg='black',fg='white')
+  obdlznik.config(bg='black',fg='white')
+  kruh.config(bg='black',fg='white')
+  pyveta.config(bg='black',fg='white')
+  l1.config(bg='black',fg='white')
+  l2.config(bg='black',fg='white')
+  l3.config(bg='black',fg='white')
+  l4.config(bg='black',fg='white')
+  l_obsahstvorca.config(bg='black',fg='white')
+  l_obsahobdlznika.config(bg='black',fg='white')
+  l_obsahkruhu.config(bg='black',fg='white')
+  l_vysledokvety.config(bg='black',fg='white')
+  l_obvodstvorca.config(bg='black',fg='white')
+  l_obvodobdlznika.config(bg='black',fg='white')
+  l_obvodkruhu.config(bg='black',fg='white')
+  l_dlzkaodvesny.config(bg='black',fg='white')
+  a.config(bg='black',fg='white')
+  b.config(bg='black',fg='white')
+  r.config(bg='black',fg='white')
+  #buttons' background does not change now
+  #obsah.config(bg='black',fg='white')
+  #obvod.config(bg='black',fg='white')
+  #vysledok.config(bg='black',fg='white')
+  #realna_dlzka.config(bg='black',fg='white')
+
+mode.config(command=dark)
+
+#and the functions belonging to the buttons and radiobuttons
 def prvy(): 
     if i.get() == 1:
          try: 
