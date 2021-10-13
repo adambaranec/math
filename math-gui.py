@@ -2,6 +2,7 @@ import math
 from tkinter import *
 from tkinter import messagebox
 import tkinter
+import texts as tx
 
 #declaration of all UI components
 okno = Tk()
@@ -39,6 +40,9 @@ kruh = Radiobutton(okno, text="Kruh", variable=i, value=3)
 pyveta = Radiobutton(okno, text="Pytagorova veta", variable=i, value=4)
 mode = Checkbutton(okno, text="Tmavý režim", variable=isdark, onvalue=1, offvalue=0)
 lang = Menu(okno)
+lang.add_command(label="Slovensky", command=tx.toslovak)
+lang.add_command(label="English", command=tx.toenglish)
+
 #making them visible
 mode.pack()
 choose.pack()
@@ -73,9 +77,14 @@ def dark():
   obvod.config(bg='white',fg='black')
   vysledok.config(bg='white',fg='black')
   realna_dlzka.config(bg='white',fg='black')
+  dlzka.config(bg='white',fg='black')
   a.config(bg='white',fg='black')
   b.config(bg='white',fg='black')
   r.config(bg='white',fg='black')
+  obsah.config(bg='white',fg='black')
+  obvod.config(bg='white',fg='black')
+  vysledok.config(bg='white',fg='black')
+  realna_dlzka.config(bg='white',fg='black')
 
  if isdark.get() == 1:
   okno.config(bg='black')
@@ -97,14 +106,14 @@ def dark():
   l_obvodobdlznika.config(bg='black',fg='white')
   l_obvodkruhu.config(bg='black',fg='white')
   l_dlzkaodvesny.config(bg='black',fg='white')
+  dlzka.config(bg='black',fg='white')
   a.config(bg='black',fg='white')
   b.config(bg='black',fg='white')
   r.config(bg='black',fg='white')
-  #buttons' background does not change now
-  #obsah.config(bg='black',fg='white')
-  #obvod.config(bg='black',fg='white')
-  #vysledok.config(bg='black',fg='white')
-  #realna_dlzka.config(bg='black',fg='white')
+  obsah.config(bg='black',fg='white')
+  obvod.config(bg='black',fg='white')
+  vysledok.config(bg='black',fg='white')
+  realna_dlzka.config(bg='black',fg='white')
 
 mode.config(command=dark)
 
