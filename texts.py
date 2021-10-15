@@ -18,6 +18,7 @@ perimeter = "perimeter"
 result = "result"
 reallength = "real length"
 #to tell the result
+writeresult = StringVar() #it will be used in functions who are invoked by buttons
 writesqarea = "Area of the square is"
 writesqper = "Perimeter of the square is"
 writerectarea = "Area of the rectangle is"
