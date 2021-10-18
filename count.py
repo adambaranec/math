@@ -1,4 +1,4 @@
-import ui, math
+import ui, math, texts as tx
 def prvy(): 
     if ui.shape.get() == 1:
          try: 
@@ -6,12 +6,12 @@ def prvy():
           side = float(getside)
           obsah = side * side
           zapis = str(obsah)
-          stav = f"Obsah štvorca je {zapis}."
+          stav = tx.writesqarea + zapis
           ui.l_obsahstvorca.pack_forget()
           ui.l_obsahstvorca.pack()
           ui.l_obsahstvorca.config(text=stav)
          except ValueError:
-          ui.messagebox.showerror("Pozor", "Akceptujeme len čísla.")
+          ui.messagebox.showerror(tx.attention, tx.accept)
     if ui.shape.get() == 2:
          try:   
           geta = ui.a.get()
@@ -20,24 +20,24 @@ def prvy():
           sideb = float(getb)
           obsah = sidea * sideb
           zapis = str(obsah)
-          stav = f"Obsah obdĺžnika je {zapis}."
+          stav = tx.writerectarea + zapis
           ui.l_obsahobdlznika.pack_forget()
           ui.l_obsahobdlznika.pack()
           ui.l_obsahobdlznika.config(text=stav)
          except ValueError:
-          ui.messagebox.showerror("Pozor", "Akceptujeme len čísla.")
+          ui.messagebox.showerror(tx.attention, tx.accept)
     if ui.shape.get() == 3:
           try:     
            getr = ui.r.get()
            radius = float(getr)
            obsah = math.pi * radius*radius
            zapis = str(obsah)
-           stav = f"Obsah kruhu je {zapis}."
+           stav = tx.writecirclea + zapis
            ui.l_obsahkruhu.pack_forget()
            ui.l_obsahkruhu.pack()
            ui.l_obsahkruhu.config(text=stav)
           except ValueError:
-           ui.messagebox.showerror("Pozor", "Akceptujeme len čísla.")
+           ui.messagebox.showerror(tx.attention, tx.accept)
     if ui.shape.get() == 4:
           try:   
            geta = ui.a.get()
@@ -46,12 +46,12 @@ def prvy():
            sideb = float(getb)
            vysledok = sidea*sidea + sideb*sideb
            zapis = str(vysledok)
-           stav = f"Výsledok vety je {zapis}."
+           stav = tx.writepytres + zapis
            ui.l_vysledokvety.pack_forget()
            ui.l_vysledokvety.pack()
            ui.l_vysledokvety.config(text=stav)
           except ValueError:
-           ui.messagebox.showerror("Pozor", "Akceptujeme len čísla.")
+           ui.messagebox.showerror(tx.attention, tx.accept)
 
 def druhy():
     if ui.shape.get() == 1:
@@ -60,12 +60,12 @@ def druhy():
           side = float(getside)
           obvod = side * 4
           zapis = str(obvod)
-          stav = f"Obvod štvorca je {zapis}."
+          stav = tx.writesqper + zapis
           ui.l_obvodstvorca.pack_forget()
           ui.l_obvodstvorca.pack()
           ui.l_obvodstvorca.config(text=stav)
         except ValueError:
-          ui.messagebox.showerror("Pozor", "Akceptujeme len čísla.")
+          ui.messagebox.showerror(tx.attention, tx.accept)
     if ui.shape.get() == 2:
          try: 
           geta = ui.a.get()
@@ -74,24 +74,24 @@ def druhy():
           sideb = int(getb)
           obvod = 2 * (sidea + sideb)
           zapis = str(obvod)
-          stav = f"Obvod obdĺžnika je {zapis}."
+          stav = tx.writerectper + zapis
           ui.l_obvodobdlznika.pack_forget()
           ui.l_obvodobdlznika.pack()
           ui.l_obvodobdlznika.config(text=stav)
          except ValueError:
-          ui.messagebox.showerror("Pozor", "Akceptujeme len čísla.")
+          ui.messagebox.showerror(tx.attention, tx.accept)
     if ui.shape.get() == 3:
          try:
           getr = ui.r.get()
           radius = int(getr)
           obvod = 2 * math.pi * radius
           zapis = str(obvod)
-          stav = f"Obvod kruhu je {zapis}."
+          stav = tx.writecirclep + zapis
           ui.l_obvodkruhu.pack_forget()
           ui.l_obvodkruhu.pack()
           ui.l_obvodkruhu.config(text=stav)
          except ValueError:
-          ui.messagebox.showerror("Pozor", "Akceptujeme len čísla.")
+          ui.messagebox.showerror(tx.attention, tx.accept)
     if ui.shape.get() == 4:
          try:     
           geta = ui.a.get()
@@ -101,12 +101,12 @@ def druhy():
           vypocet = sidea*sidea + sideb*sideb
           vysledok = math.sqrt(vypocet)
           zapis = str(vysledok)
-          stav = f"Dĺžka odvesny je {zapis}."
+          stav = tx.writepytlen + zapis
           ui.l_dlzkaodvesny.pack_forget()
           ui.l_dlzkaodvesny.pack()
           ui.l_dlzkaodvesny.config(text=stav)
          except ValueError:               
-          ui.messagebox.showerror("Pozor", "Akceptujeme len čísla.")
+          ui.messagebox.showerror(tx.attention, tx.accept)
 
 ui.obsah.config(command=prvy)
 ui.obvod.config(command=druhy)
