@@ -1,0 +1,60 @@
+import ui
+def hide():
+  #this function is only for better understanding what it does
+  ui.dlzka.delete(0)
+  ui.a.delete(0)
+  ui.b.delete(0)
+  ui.r.delete(0)
+  ui.dlzka.pack_forget()
+  ui.a.pack_forget()
+  ui.b.pack_forget()
+  ui.r.pack_forget()
+  ui.obsah.pack_forget()
+  ui.obvod.pack_forget()
+  ui.vysledok.pack_forget()
+  ui.realna_dlzka.pack_forget()
+  ui.l1.pack_forget()
+  ui.l2.pack_forget()
+  ui.l3.pack_forget()
+  ui.l4.pack_forget()
+  ui.l_obsahstvorca.pack_forget()
+  ui.l_obsahobdlznika.pack_forget()
+  ui.l_obsahkruhu.pack_forget()
+  ui.l_vysledokvety.pack_forget()
+  ui.l_obvodstvorca.pack_forget()
+  ui.l_obvodobdlznika.pack_forget()
+  ui.l_obvodkruhu.pack_forget()
+  ui.l_dlzkaodvesny.pack_forget()
+
+def prepare():
+  hide()
+
+  if ui.shape.get() == 1:
+       ui.l1.pack()
+       ui.dlzka.pack()
+       ui.obsah.pack()
+       ui.obvod.pack()
+  if ui.shape.get() == 2:
+       ui.l2.pack()
+       ui.a.pack()
+       ui.l3.pack()
+       ui.b.pack()
+       ui.obsah.pack()
+       ui.obvod.pack()
+  if ui.shape.get() == 3:
+       ui.l4.pack()
+       ui.r.pack()
+       ui.obsah.pack()
+       ui.obvod.pack()
+  if ui.shape.get() == 4:
+       ui.l2.pack()
+       ui.a.pack()
+       ui.l3.pack()
+       ui.b.pack()
+       ui.vysledok.pack()
+       ui.realna_dlzka.pack()
+
+ui.stvorec.config(command=prepare)
+ui.obdlznik.config(command=prepare)
+ui.kruh.config(command=prepare)
+ui.pyveta.config(command=prepare)

@@ -3,6 +3,9 @@ import texts as tx
 
 #declaration of all UI elements of this app
 okno = Tk()
+okno.geometry('500x500')
+okno.eval('tk::PlaceWindow . center')
+okno.title="Matika"""
 choose = Label(text=tx.chooseshape)
 strana1 = StringVar()
 strana2 = StringVar()
@@ -32,12 +35,8 @@ stvorec = Radiobutton(okno, text=tx.square, variable=shape, value=1)
 obdlznik = Radiobutton(okno, text=tx.rect, variable=shape, value=2)
 kruh = Radiobutton(okno, text=tx.circle, variable=shape, value=3)
 pyveta = Radiobutton(okno, text=tx.pytheorem, variable=shape, value=4)
+mode = Checkbutton(okno, text=tx.darkmode, variable=isdark, onvalue=1, offvalue=0)
 lang = Menu(okno)
-
-okno.geometry('500x500')
-okno.eval('tk::PlaceWindow . center')
-okno.title="Matika"""
-
 
 def toslovak():
  choose.config(text=tx.chooseshape_sk)
@@ -51,14 +50,14 @@ def toslovak():
  pyveta.config(text=tx.pytheorem_sk)
  l1.config(text=tx.sidelength_sk)
  l4.config(text=tx.radiuscircle_sk)
- l_obsahstvorca.config()
- l_obsahobdlznika.config()
- l_obsahkruhu.config()
- l_vysledokvety.config()
- l_obvodstvorca.config()
- l_obvodobdlznika.config()
- l_obvodkruhu.config()
- l_dlzkaodvesny.config()
+ l_obsahstvorca.config(text=tx.writesqarea_sk)
+ l_obsahobdlznika.config(text=tx.writerectarea_sk)
+ l_obsahkruhu.config(text=tx.writecirclea_sk)
+ l_vysledokvety.config(text=tx.writepytres_sk)
+ l_obvodstvorca.config(text=tx.writesqper_sk)
+ l_obvodobdlznika.config(text=tx.writerectper_sk)
+ l_obvodkruhu.config(text=tx.writecirclep_sk)
+ l_dlzkaodvesny.config(text=tx.writepytlen_sk)
  
 def toenglish():
  choose.config(text=tx.chooseshape)
@@ -72,12 +71,12 @@ def toenglish():
  pyveta.config(text=tx.pytheorem)
  l1.config(text=tx.sidelength)
  l4.config(text=tx.radiuscircle)
- l_obsahstvorca.config()
- l_obsahobdlznika.config()
- l_obsahkruhu.config()
- l_vysledokvety.config()
- l_obvodstvorca.config()
- l_obvodobdlznika.config()
- l_obvodkruhu.config()
- l_dlzkaodvesny.config()
+ l_obsahstvorca.config(text=tx.writesqarea)
+ l_obsahobdlznika.config(text=tx.writerectarea)
+ l_obsahkruhu.config(text=tx.writecirclea)
+ l_vysledokvety.config(text=tx.writepytres)
+ l_obvodstvorca.config(text=tx.writesqper)
+ l_obvodobdlznika.config(text=tx.writerectper)
+ l_obvodkruhu.config(text=tx.writecirclep)
+ l_dlzkaodvesny.config(text=tx.writepytlen)
 

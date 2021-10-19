@@ -1,3 +1,8 @@
+'''Despite I had an urge to delete this file,
+I finally decided to keep this to remind how it started
+as a legacy code.
+The code in the other files is copied from there.'''
+
 import math
 from tkinter import *
 from tkinter import messagebox

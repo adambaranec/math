@@ -1,4 +1,5 @@
 import ui, math, texts as tx
+from tkinter import messagebox
 def prvy(): 
     if ui.shape.get() == 1:
          try: 
@@ -11,7 +12,7 @@ def prvy():
           ui.l_obsahstvorca.pack()
           ui.l_obsahstvorca.config(text=stav)
          except ValueError:
-          ui.messagebox.showerror(tx.attention, tx.accept)
+          messagebox.showerror(tx.attention, tx.accept)
     if ui.shape.get() == 2:
          try:   
           geta = ui.a.get()
@@ -25,7 +26,7 @@ def prvy():
           ui.l_obsahobdlznika.pack()
           ui.l_obsahobdlznika.config(text=stav)
          except ValueError:
-          ui.messagebox.showerror(tx.attention, tx.accept)
+          messagebox.showerror(tx.attention, tx.accept)
     if ui.shape.get() == 3:
           try:     
            getr = ui.r.get()
@@ -37,7 +38,7 @@ def prvy():
            ui.l_obsahkruhu.pack()
            ui.l_obsahkruhu.config(text=stav)
           except ValueError:
-           ui.messagebox.showerror(tx.attention, tx.accept)
+           messagebox.showerror(tx.attention, tx.accept)
     if ui.shape.get() == 4:
           try:   
            geta = ui.a.get()
@@ -51,7 +52,7 @@ def prvy():
            ui.l_vysledokvety.pack()
            ui.l_vysledokvety.config(text=stav)
           except ValueError:
-           ui.messagebox.showerror(tx.attention, tx.accept)
+           messagebox.showerror(tx.attention, tx.accept)
 
 def druhy():
     if ui.shape.get() == 1:
@@ -65,7 +66,7 @@ def druhy():
           ui.l_obvodstvorca.pack()
           ui.l_obvodstvorca.config(text=stav)
         except ValueError:
-          ui.messagebox.showerror(tx.attention, tx.accept)
+          messagebox.showerror(tx.attention, tx.accept)
     if ui.shape.get() == 2:
          try: 
           geta = ui.a.get()
@@ -79,7 +80,7 @@ def druhy():
           ui.l_obvodobdlznika.pack()
           ui.l_obvodobdlznika.config(text=stav)
          except ValueError:
-          ui.messagebox.showerror(tx.attention, tx.accept)
+          messagebox.showerror(tx.attention, tx.accept)
     if ui.shape.get() == 3:
          try:
           getr = ui.r.get()
@@ -91,7 +92,7 @@ def druhy():
           ui.l_obvodkruhu.pack()
           ui.l_obvodkruhu.config(text=stav)
          except ValueError:
-          ui.messagebox.showerror(tx.attention, tx.accept)
+          messagebox.showerror(tx.attention, tx.accept)
     if ui.shape.get() == 4:
          try:     
           geta = ui.a.get()
@@ -106,7 +107,7 @@ def druhy():
           ui.l_dlzkaodvesny.pack()
           ui.l_dlzkaodvesny.config(text=stav)
          except ValueError:               
-          ui.messagebox.showerror(tx.attention, tx.accept)
+          messagebox.showerror(tx.attention, tx.accept)
 
 ui.obsah.config(command=prvy)
 ui.obvod.config(command=druhy)
